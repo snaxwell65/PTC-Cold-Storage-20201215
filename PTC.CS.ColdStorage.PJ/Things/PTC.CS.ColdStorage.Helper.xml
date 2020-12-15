@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><Entities build="b9557" majorVersion="9" minorVersion="0" modelPersistenceProviderPackage="H2PersistenceProviderPackage" revision="0" schemaVersion="1100" universal=""><Things><Thing description="" documentationContent="" effectiveThingPackage="ConfiguredThing" enabled="true" homeMashup="" identifier="" inheritedValueStream="" lastModifiedDate="2020-12-15T20:26:42.196Z" name="PTC.CS.ColdStorage.Helper" projectName="PTC.CS.ColdStorage.PJ" published="false" tags="" thingTemplate="GenericThing" valueStream=""><Owner name="Administrator" type="User"/><avatar/><DesignTimePermissions><Create/><Read/><Update/><Delete/><Metadata/></DesignTimePermissions><RunTimePermissions><Permissions resourceName="CreateOrgUnitandAssignUser"><PropertyRead/><PropertyWrite/><ServiceInvoke><Principal isPermitted="true" name="PTC.CS.ColdStorageAdministrators.Group" type="Group"/></ServiceInvoke><EventInvoke/><EventSubscribe/></Permissions><Permissions resourceName="IsColdStorageAdmin"><PropertyRead/><PropertyWrite/><ServiceInvoke><Principal isPermitted="true" name="PTC.CS.ColdStorageAdministrators.Group" type="Group"/></ServiceInvoke><EventInvoke/><EventSubscribe/></Permissions><Permissions resourceName="CreateUserandAssignUserGroup"><PropertyRead/><PropertyWrite/><ServiceInvoke><Principal isPermitted="true" name="PTC.CS.ColdStorageAdministrators.Group" type="Group"/></ServiceInvoke><EventInvoke/><EventSubscribe/></Permissions><Permissions resourceName="*"><PropertyRead><Principal isPermitted="true" name="PTC.CS.ColdStorageAdministrators.Group" type="Group"/></PropertyRead><PropertyWrite/><ServiceInvoke/><EventInvoke/><EventSubscribe/></Permissions><Permissions resourceName="CreateColdStorageThing"><PropertyRead/><PropertyWrite/><ServiceInvoke><Principal isPermitted="true" name="PTC.CS.ColdStorageAdministrators.Group" type="Group"/></ServiceInvoke><EventInvoke/><EventSubscribe/></Permissions><Permissions resourceName="CreateSite"><PropertyRead/><PropertyWrite/><ServiceInvoke><Principal isPermitted="true" name="PTC.CS.ColdStorageAdministrators.Group" type="Group"/></ServiceInvoke><EventInvoke/><EventSubscribe/></Permissions></RunTimePermissions><VisibilityPermissions><Visibility><Principal isPermitted="true" name="PTC.CS.ColdStorage.Org" type="Organization"/></Visibility></VisibilityPermissions><ConfigurationTableDefinitions/><ConfigurationTables/><ThingShape><PropertyDefinitions/><ServiceDefinitions><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CreateColdStorageThing"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="csName" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CreateOrgUnitandAssignUser"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="userName" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CreateSite"><ResultType baseType="STRING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="password" ordinal="2"/><FieldDefinition aspect.isRequired="true" baseType="STRING" description="" name="siteName" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="CreateUserandAssignUserGroup"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="password" ordinal="2"/><FieldDefinition baseType="STRING" description="" name="userName" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="IsColdStorageAdmin"><ResultType baseType="BOOLEAN" description="" name="result" ordinal="0"/><ParameterDefinitions><FieldDefinition baseType="STRING" description="" name="userName" ordinal="1"/></ParameterDefinitions></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="ParseCSV"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition><ServiceDefinition aspect.isAsync="false" category="" description="" isAllowOverride="false" isLocalOnly="false" isOpen="false" isPrivate="false" name="SetupCollectionAndSystemPermissions"><ResultType baseType="NOTHING" description="" name="result" ordinal="0"/><ParameterDefinitions/></ServiceDefinition></ServiceDefinitions><EventDefinitions/><ServiceMappings/><ServiceImplementations><ServiceImplementation description="" handlerName="Script" name="CreateColdStorageThing"><ConfigurationTables><ConfigurationTable dataShapeName="" description="" isMultiRow="false" name="Script" ordinal="0"><DataShape><FieldDefinitions><FieldDefinition baseType="STRING" description="code" name="code" ordinal="0"/></FieldDefinitions></DataShape><Rows><Row><code><![CDATA[//Create a Functionality statement
 //***********************************************************
 //Functionality:
-// This is a provisioning service which creates a cold storage 
+// This is a provisioning service which creates a cold storage
 // thing (instance of PTC.CS.ColdStorage.TT) with the name
 // ColdStorage-[csName input parameter]
 //***********************************************************
@@ -31,7 +31,7 @@ try{ // Create Thing
     	thingTemplateName: "PTC.CS.ColdStorage.TT",
     	tags: tags
     };
-    Resources["EntityServices"].CreateThing(params);	
+    Resources["EntityServices"].CreateThing(params);
     Things[thingName].EnableThing();
     Things[thingName].RestartThing();
     logger.debug(thingName + " Created");
@@ -56,7 +56,7 @@ catch(err) {  // If not created, attempt to prevent ghost entity.
 // Adds PTC.CS.[userName].Group to org unit.
 // Grants org unit visibility to ColdStorage-[userName] thing
 //***********************************************************
-//Author: John 
+//Author: John
 //Version: Initial Version
 //Release: 1.0
 //***********************************************************
@@ -77,7 +77,7 @@ if (!Things[thingName] || !Users[userName] || !Groups[groupName]) {
 if (Organizations["PTC.CS.ColdStorage.Org"].IsInOrganization({name: orgUnitName})) {
     logger.warn("Organizational unit " + orgUnitName + " already exists.");
     throw "Organizational unit " + orgUnitName + " already exists.";
-}               
+}
 
 try {
 	Organizations["PTC.CS.ColdStorage.Org"].AddOrganizationalUnit({
@@ -113,7 +113,7 @@ catch(err) {
 // Returns a message string suitable for a status message in a mashup.
 // Should not return an error.
 //***********************************************************
-//Author: John 
+//Author: John
 //Version: Initial Version
 //Release: 1.0
 //***********************************************************
@@ -149,7 +149,7 @@ if (siteName && password) {
 // Create a group with the name PTC.CS.[userName].Group.
 // Use DataEntities tag and assign user to group.
 //***********************************************************
-//Author: John 
+//Author: John
 //Version: Initial Version
 //Release: 1.0
 //***********************************************************
@@ -245,7 +245,7 @@ result = isMember;]]></code></Row></Rows></ConfigurationTable></ConfigurationTab
 // to see how missing extension dependencies can be detected
 // and found.
 //***********************************************************
-//Author: John 
+//Author: John
 //Version: Initial Version
 //Release: 1.0
 //***********************************************************
@@ -268,7 +268,7 @@ var result =  Resources["CSVParserFunctions"].ParseCSVFile({
 // Visibility to the Media collection to the Everyone organization
 // Design Time Create on the Users collection to PTC.CS.ColdStorageAdministrators.Group
 //***********************************************************
-//Author: John 
+//Author: John
 //Version: Initial Version
 //Release: 1.0
 //***********************************************************
@@ -279,7 +279,7 @@ var entityTypeList =  Subsystems["PlatformSubsystem"].GetEntityCount({
 	modelTags: undefined,
 	type: undefined
 });
-for each (var row in entityTypeList.rows) {	//loop and add permission for each collection					
+for each (var row in entityTypeList.rows) {	//loop and add permission for each collection
 	params = {
             principal: "System" /* STRING */,
             allow: true /* BOOLEAN */,
@@ -288,7 +288,7 @@ for each (var row in entityTypeList.rows) {	//loop and add permission for each c
             principalType: "User" /* STRING */,
             collectionName: row.name /* STRING */
   	 };
-	Resources["CollectionFunctions"].AddCollectionRunTimePermission(params);    
+	Resources["CollectionFunctions"].AddCollectionRunTimePermission(params);
 	params.type = "PropertyRead";
 	Resources["CollectionFunctions"].AddCollectionRunTimePermission(params);
 	params.type = "PropertyWrite";
@@ -310,9 +310,9 @@ for each (var row in entityTypeList.rows) {	//loop and add permission for each c
     params.type = "Update";
     Resources["CollectionFunctions"].AddCollectionDesignTimePermission(params);
     params.type = "Delete";
-    Resources["CollectionFunctions"].AddCollectionDesignTimePermission(params); 
+    Resources["CollectionFunctions"].AddCollectionDesignTimePermission(params);
 }logger.debug("Adding allpermissions to all collections for SYSTEM user");
-  
+
 //+Visibility to PTC.CS.ColdStorage.Org on Resources collection
 var params = {
 	principal: "PTC.CS.ColdStorage.Org" /* STRING */,
