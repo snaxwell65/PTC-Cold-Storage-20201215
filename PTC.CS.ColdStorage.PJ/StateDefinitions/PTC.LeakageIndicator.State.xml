@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b9557"
+ majorVersion="9"
+ minorVersion="0"
+ modelPersistenceProviderPackage="H2PersistenceProviderPackage"
+ revision="0"
+ schemaVersion="1100"
+ universal="password">
+    <StateDefinitions>
+        <StateDefinition
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2020-12-15T18:30:29.579Z"
+         name="PTC.LeakageIndicator.State"
+         projectName="PTC.CS.ColdStorage.PJ"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "stateDefinitions" : [ {
+                "defaultStyleDefinition" : "PTC.LeakageIndicator.Style",
+                "defaultValue" : "String",
+                "description" : "",
+                "displayString" : "Leakage in cold storage room",
+                "name" : ""
+              }, {
+                "defaultStyleDefinition" : "PTC.NoLeakageIndicator.Style",
+                "description" : "",
+                "displayString" : "No Leakage",
+                "name" : ""
+              } ],
+              "stateType" : "string"
+            }
+            ]]>
+            </content>
+        </StateDefinition>
+    </StateDefinitions>
+</Entities>

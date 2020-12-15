@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b9557"
+ majorVersion="9"
+ minorVersion="0"
+ modelPersistenceProviderPackage="H2PersistenceProviderPackage"
+ revision="0"
+ schemaVersion="1100"
+ universal="password">
+    <Mashups>
+        <Mashup
+         aspect.isFlex="true"
+         aspect.isResponsive="true"
+         aspect.mashupType="target"
+         columns="0.0"
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2020-12-15T18:30:29.601Z"
+         name="PTC.CS.ColdStorage.Master"
+         projectName="PTC.CS.ColdStorage.PJ"
+         rows="0.0"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility>
+                    <Principal
+                     isPermitted="true"
+                     name="PTC.CS.ColdStorage.Org"
+                     type="Organization"></Principal>
+                </Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="Mashup Mobile Settings"
+                 isHidden="true"
+                 isMultiRow="false"
+                 name="MobileSettings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="false"
+                             baseType="BOOLEAN"
+                             description=""
+                             name="disableZoom"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             baseType="BOOLEAN"
+                             description=""
+                             name="fullScreenMode"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="height"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-height"
+                             baseType="STRING"
+                             description=""
+                             name="heightType"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="1.0"
+                             baseType="NUMBER"
+                             description=""
+                             name="initialScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="iosShortcutIconTitle"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="black-translucent"
+                             baseType="STRING"
+                             description=""
+                             name="iosStatusBarAppearance"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="10.0"
+                             baseType="NUMBER"
+                             description=""
+                             name="maximumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="0.1"
+                             baseType="NUMBER"
+                             description=""
+                             name="minimumScale"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="STRING"
+                             description=""
+                             name="width"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="device-width"
+                             baseType="STRING"
+                             description=""
+                             name="widthType"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <disableZoom>false</disableZoom>
+                            <fullScreenMode>true</fullScreenMode>
+                            <height></height>
+                            <heightType>
+                            <![CDATA[
+                            device-height
+                            ]]>
+                            </heightType>
+                            <initialScale>1.0</initialScale>
+                            <iosShortcutIconTitle></iosShortcutIconTitle>
+                            <iosStatusBarAppearance>
+                            <![CDATA[
+                            black-translucent
+                            ]]>
+                            </iosStatusBarAppearance>
+                            <maximumScale>10.0</maximumScale>
+                            <minimumScale>0.1</minimumScale>
+                            <width></width>
+                            <widthType>
+                            <![CDATA[
+                            device-width
+                            ]]>
+                            </widthType>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ParameterDefinitions></ParameterDefinitions>
+            <Things></Things>
+            <ThingShapes></ThingShapes>
+            <ThingTemplates></ThingTemplates>
+            <mashupContent>
+            <![CDATA[
+            {
+              "CustomMashupCss" : "",
+              "Data" : {
+                "Session" : {
+                  "DataName" : "Session",
+                  "EntityName" : "",
+                  "EntityType" : "Session",
+                  "Id" : "session",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "SessionInterface",
+                    "Name" : "GetGlobalSessionValues",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetGlobalSessionValues"
+                  } ]
+                },
+                "UserExtensions" : {
+                  "DataName" : "UserExtensions",
+                  "EntityName" : "",
+                  "EntityType" : "UserExtensions",
+                  "Id" : "UserExtensions",
+                  "Services" : [ {
+                    "APIMethod" : "post",
+                    "Characteristic" : "Services",
+                    "Id" : "UserExtensionInterface",
+                    "Name" : "GetCurrentUserExtensionProperties",
+                    "Parameters" : { },
+                    "RefreshInterval" : 0,
+                    "Target" : "GetCurrentUserExtensionProperties"
+                  } ]
+                }
+              },
+              "DataBindings" : [ ],
+              "DesignTimePermissions" : {
+                "Create" : [ ],
+                "Delete" : [ ],
+                "Metadata" : [ ],
+                "Read" : [ {
+                  "isPermitted" : true,
+                  "name" : "PTC.ColdStorageAdministrators.Group",
+                  "type" : "Group"
+                } ],
+                "Update" : [ {
+                  "isPermitted" : true,
+                  "name" : "PTC.ColdStorageAdministrators.Group",
+                  "type" : "Group"
+                } ]
+              },
+              "Events" : [ ],
+              "RunTimePermissions" : {
+                "permissions" : [ {
+                  "EventInvoke" : [ ],
+                  "EventSubscribe" : [ ],
+                  "PropertyRead" : [ ],
+                  "PropertyWrite" : [ ],
+                  "ServiceInvoke" : [ {
+                    "isPermitted" : true,
+                    "name" : "PTC.ColdStorageAdministrators.Group",
+                    "type" : "Group"
+                  } ],
+                  "resourceName" : "*"
+                } ]
+              },
+              "UI" : {
+                "Properties" : {
+                  "Area" : "Mashup",
+                  "BGImageRepeat" : "no-repeat",
+                  "BGImageSize" : "auto",
+                  "DisplayName" : "Mashup",
+                  "DropShadow" : false,
+                  "Font" : "Arial, Helvetica",
+                  "Height" : 768,
+                  "Id" : "mashup-root",
+                  "Left" : 0,
+                  "MaxWidth" : 0,
+                  "MigratedOn" : "2020-08-14T13:57:31.760Z",
+                  "MinHeight" : 0,
+                  "MinWidth" : 0,
+                  "ResponsiveLayout" : true,
+                  "ShowDataLoading" : true,
+                  "Style" : "DefaultMasterMashupStyle",
+                  "StyleTheme" : "PTC Convergence Theme",
+                  "Title" : "",
+                  "Top" : 0,
+                  "Type" : "targetmashup",
+                  "Visible" : true,
+                  "Width" : 1024,
+                  "WindowStyle" : "DefaultMasterWindowStyle",
+                  "Z-index" : 10,
+                  "__TypeDisplayName" : "Master Mashup",
+                  "id_index" : 26,
+                  "supportsAutoResize" : true
+                },
+                "Widgets" : [ {
+                  "Properties" : {
+                    "Area" : "UI",
+                    "DisplayName" : "master container",
+                    "EnableExpandCollapse" : false,
+                    "Expanded" : true,
+                    "Id" : "flexcontainer-1",
+                    "LastContainer" : true,
+                    "Overlay" : false,
+                    "ResponsiveLayout" : true,
+                    "ShowDataLoading" : true,
+                    "ShowExpandCollapseTab" : false,
+                    "SourceURL" : "",
+                    "Style" : "DefaultContainerStyle",
+                    "StyleProperties" : { },
+                    "Type" : "flexcontainer",
+                    "UseTheme" : true,
+                    "Visible" : true,
+                    "Z-index" : 10,
+                    "__TypeDisplayName" : "Flex Container",
+                    "align-content" : "flex-start",
+                    "align-items" : "flex-start",
+                    "flex-basis" : "auto",
+                    "flex-direction" : "column",
+                    "flex-grow" : 1,
+                    "flex-max-height" : "",
+                    "flex-max-width" : "",
+                    "flex-min-height" : "",
+                    "flex-min-width" : "",
+                    "flex-shrink" : "0",
+                    "flex-size" : "default",
+                    "flex-wrap" : "nowrap",
+                    "iconClass" : "widgets-flexcontainer",
+                    "justify-content" : "flex-start",
+                    "positioning" : "responsive",
+                    "userCannotRemove" : false
+                  },
+                  "Widgets" : [ {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DisplayName" : "container-2",
+                      "EnableExpandCollapse" : false,
+                      "Expanded" : true,
+                      "Id" : "flexcontainer-2",
+                      "LastContainer" : false,
+                      "Overlay" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "SourceURL" : "",
+                      "Style" : "DefaultContainerStyle",
+                      "StyleProperties" : { },
+                      "Type" : "flexcontainer",
+                      "UseTheme" : true,
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Flex Container",
+                      "align-content" : "flex-start",
+                      "align-items" : "flex-start",
+                      "flex-basis" : "auto",
+                      "flex-direction" : "column",
+                      "flex-grow" : 1,
+                      "flex-max-height" : "90px",
+                      "flex-max-width" : "",
+                      "flex-min-height" : "90px",
+                      "flex-min-width" : "",
+                      "flex-shrink" : "0",
+                      "flex-size" : "default",
+                      "flex-wrap" : "nowrap",
+                      "iconClass" : "widgets-flexcontainer-fixed",
+                      "isLocked" : false,
+                      "justify-content" : "flex-start",
+                      "positioning" : "responsive",
+                      "userCannotRemove" : false
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "AlternateText" : "",
+                        "Area" : "UI",
+                        "ContainerDim" : false,
+                        "DisplayName" : "image-26",
+                        "Height" : 100,
+                        "Id" : "ptcsimage-26",
+                        "LastContainer" : false,
+                        "Left" : 110,
+                        "Position" : "top",
+                        "PreventCaching" : false,
+                        "ResponsiveLayout" : true,
+                        "Scaling" : "fit-x",
+                        "ShowDataLoading" : true,
+                        "SourceURL" : "/Thingworx/MediaEntities/PTC.ColdStorageBanner.Media",
+                        "Top" : 55,
+                        "Type" : "ptcsimage",
+                        "UseTheme" : true,
+                        "Visible" : true,
+                        "Width" : 100,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Image"
+                      },
+                      "Widgets" : [ ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DisplayName" : "container-6",
+                      "EnableExpandCollapse" : false,
+                      "Expanded" : true,
+                      "Id" : "flexcontainer-6",
+                      "LastContainer" : false,
+                      "Overlay" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "SourceURL" : "",
+                      "Style" : "DefaultContainerStyle",
+                      "StyleProperties" : { },
+                      "Type" : "flexcontainer",
+                      "UseTheme" : true,
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Flex Container",
+                      "align-content" : "flex-start",
+                      "align-items" : "flex-start",
+                      "flex-basis" : "auto",
+                      "flex-direction" : "row",
+                      "flex-grow" : 1,
+                      "flex-max-height" : "",
+                      "flex-max-width" : "",
+                      "flex-min-height" : "",
+                      "flex-min-width" : "",
+                      "flex-shrink" : "0",
+                      "flex-size" : "default",
+                      "flex-wrap" : "nowrap",
+                      "iconClass" : "widgets-flexcontainer",
+                      "isLocked" : true,
+                      "justify-content" : "flex-start",
+                      "positioning" : "responsive",
+                      "userCannotRemove" : false
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "Area" : "UI",
+                        "DisplayName" : "Page Mashup",
+                        "Height" : 300,
+                        "Id" : "pagemashupcontainer-7",
+                        "LastContainer" : false,
+                        "Left" : 0,
+                        "Name" : "",
+                        "ResponsiveLayout" : true,
+                        "ShowDataLoading" : true,
+                        "Top" : 0,
+                        "Type" : "pagemashupcontainer",
+                        "Visible" : true,
+                        "Width" : 400,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Page Mashup Container"
+                      },
+                      "Widgets" : [ ]
+                    } ]
+                  }, {
+                    "Properties" : {
+                      "Area" : "UI",
+                      "DisplayName" : "container-4",
+                      "EnableExpandCollapse" : false,
+                      "Expanded" : true,
+                      "Id" : "flexcontainer-4",
+                      "LastContainer" : false,
+                      "Overlay" : false,
+                      "ResponsiveLayout" : false,
+                      "ShowDataLoading" : true,
+                      "ShowExpandCollapseTab" : false,
+                      "SourceURL" : "",
+                      "Style" : "DefaultContainerStyle",
+                      "StyleProperties" : { },
+                      "Type" : "flexcontainer",
+                      "UseTheme" : true,
+                      "Visible" : true,
+                      "Z-index" : 10,
+                      "__TypeDisplayName" : "Flex Container",
+                      "align-content" : "flex-start",
+                      "align-items" : "flex-start",
+                      "flex-basis" : "auto",
+                      "flex-direction" : "column",
+                      "flex-grow" : 1,
+                      "flex-max-height" : "50px",
+                      "flex-max-width" : "",
+                      "flex-min-height" : "50px",
+                      "flex-min-width" : "",
+                      "flex-shrink" : "0",
+                      "flex-size" : "default",
+                      "flex-wrap" : "nowrap",
+                      "iconClass" : "widgets-flexcontainer-fixed",
+                      "isLocked" : false,
+                      "justify-content" : "flex-start",
+                      "positioning" : "responsive",
+                      "userCannotRemove" : false
+                    },
+                    "Widgets" : [ {
+                      "Properties" : {
+                        "AlternateText" : "",
+                        "Area" : "UI",
+                        "ContainerDim" : false,
+                        "DisplayName" : "image-11",
+                        "Height" : 100,
+                        "Id" : "ptcsimage-11",
+                        "LastContainer" : false,
+                        "Left" : 265,
+                        "Position" : "top",
+                        "PreventCaching" : false,
+                        "ResponsiveLayout" : true,
+                        "Scaling" : "fit-x",
+                        "ShowDataLoading" : true,
+                        "SourceURL" : "/Thingworx/MediaEntities/PTC.ColdStorageFooter.Media",
+                        "Top" : 45,
+                        "Type" : "ptcsimage",
+                        "UseTheme" : true,
+                        "Visible" : true,
+                        "Width" : 100,
+                        "Z-index" : 10,
+                        "__TypeDisplayName" : "Image"
+                      },
+                      "Widgets" : [ ]
+                    } ]
+                  } ]
+                } ]
+              },
+              "mashupType" : "targetmashup"
+            }
+            ]]>
+            </mashupContent>
+            <preview></preview>
+        </Mashup>
+    </Mashups>
+</Entities>

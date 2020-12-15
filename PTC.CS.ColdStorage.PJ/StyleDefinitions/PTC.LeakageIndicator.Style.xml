@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b9557"
+ majorVersion="9"
+ minorVersion="0"
+ modelPersistenceProviderPackage="H2PersistenceProviderPackage"
+ revision="0"
+ schemaVersion="1100"
+ universal="password">
+    <StyleDefinitions>
+        <StyleDefinition
+         description=""
+         documentationContent=""
+         homeMashup=""
+         lastModifiedDate="2020-12-15T18:30:29.593Z"
+         name="PTC.LeakageIndicator.Style"
+         projectName="PTC.CS.ColdStorage.PJ"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+            <content>
+            <![CDATA[
+            {
+              "backgroundColor" : "rgba(240,0,0,1)",
+              "displayString" : "",
+              "fontEmphasisBold" : false,
+              "fontEmphasisItalic" : false,
+              "fontEmphasisUnderline" : false,
+              "foregroundColor" : "",
+              "image" : "",
+              "lineColor" : "",
+              "lineStyle" : "solid",
+              "lineThickness" : 1,
+              "secondaryBackgroundColor" : "",
+              "textSize" : "normal"
+            }
+            ]]>
+            </content>
+        </StyleDefinition>
+    </StyleDefinitions>
+</Entities>

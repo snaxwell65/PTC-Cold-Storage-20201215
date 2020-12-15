@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b9557"
+ majorVersion="9"
+ minorVersion="0"
+ modelPersistenceProviderPackage="H2PersistenceProviderPackage"
+ revision="0"
+ schemaVersion="1100"
+ universal="password">
+    <Projects>
+        <Project
+         artifactId=""
+         dependsOn="{&quot;extensions&quot;:&quot;&quot;,&quot;projects&quot;:&quot;&quot;}"
+         description=""
+         documentationContent=""
+         groupId=""
+         homeMashup=""
+         lastModifiedDate="2020-12-15T18:30:29.783Z"
+         minPlatformVersion=""
+         name="PTC.CS.ColdStorage.PJ"
+         packageVersion="1.0.0"
+         projectName="PTC.CS.ColdStorage.PJ"
+         publishResult=""
+         state="DRAFT"
+         tags="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+        </Project>
+    </Projects>
+</Entities>

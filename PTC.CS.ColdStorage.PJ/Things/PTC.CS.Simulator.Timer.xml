@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b9557"
+ majorVersion="9"
+ minorVersion="0"
+ modelPersistenceProviderPackage="H2PersistenceProviderPackage"
+ revision="0"
+ schemaVersion="1100"
+ universal="password">
+    <Things>
+        <Thing
+         description=""
+         documentationContent=""
+         effectiveThingPackage="TimerThing"
+         enabled="true"
+         homeMashup=""
+         identifier=""
+         inheritedValueStream=""
+         lastModifiedDate="2020-12-15T18:30:29.814Z"
+         name="PTC.CS.Simulator.Timer"
+         projectName="PTC.CS.ColdStorage.PJ"
+         published="false"
+         tags=""
+         thingTemplate="Timer"
+         valueStream="">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables>
+                <ConfigurationTable
+                 dataShapeName=""
+                 description="General Settings"
+                 isMultiRow="false"
+                 name="Settings"
+                 ordinal="0">
+                    <DataShape>
+                        <FieldDefinitions>
+                            <FieldDefinition
+                             aspect.defaultValue="true"
+                             baseType="BOOLEAN"
+                             description="Automatically enable timer on startup"
+                             name="enabled"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             baseType="USERNAME"
+                             description="User context in which to run event handlers"
+                             name="runAsUser"
+                             ordinal="0"></FieldDefinition>
+                            <FieldDefinition
+                             aspect.defaultValue="60000.0"
+                             baseType="NUMBER"
+                             description="Update rate"
+                             name="updateRate"
+                             ordinal="0"></FieldDefinition>
+                        </FieldDefinitions>
+                    </DataShape>
+                    <Rows>
+                        <Row>
+                            <enabled>true</enabled>
+                            <runAsUser>
+                            <![CDATA[
+                            Administrator
+                            ]]>
+                            </runAsUser>
+                            <updateRate>60000.0</updateRate>
+                        </Row>
+                    </Rows>
+                </ConfigurationTable>
+            </ConfigurationTables>
+            <ThingShape>
+                <PropertyDefinitions></PropertyDefinitions>
+                <ServiceDefinitions></ServiceDefinitions>
+                <EventDefinitions></EventDefinitions>
+                <ServiceMappings></ServiceMappings>
+                <ServiceImplementations></ServiceImplementations>
+                <Subscriptions>
+                    <Subscription
+                     description=""
+                     enabled="true"
+                     eventName="Timer"
+                     name="SetColdStorageProperties"
+                     source=""
+                     sourceProperty=""
+                     sourceType="Thing">
+                        <ServiceImplementation
+                         description=""
+                         handlerName="Script"
+                         name="SetColdStorageProperties">
+                            <ConfigurationTables>
+                                <ConfigurationTable
+                                 dataShapeName=""
+                                 description=""
+                                 isMultiRow="false"
+                                 name="Script"
+                                 ordinal="0">
+                                    <DataShape>
+                                        <FieldDefinitions>
+                                            <FieldDefinition
+                                             baseType="STRING"
+                                             description="code"
+                                             name="code"
+                                             ordinal="0"></FieldDefinition>
+                                        </FieldDefinitions>
+                                    </DataShape>
+                                    <Rows>
+                                        <Row>
+                                            <code>
+                                            <![CDATA[
+                                            //***************************************************
+                                            //Functionality:
+                                            //Service simulates connection to edge device, adding random
+                                            //properties for temperature, humidity, leakage, and voltage
+                                            //***************************************************
+                                            //Author: John 
+                                            //Version: Initial Version
+                                            //Release: 1.0
+                                            //***************************************************
+                                            logger.debug(me.name + " property simulator is setting properties");
+                                            var coldStorageThings = ThingTemplates["PTC.CS.ColdStorage.TT"].GetImplementingThings();
+                                            var tableLength = coldStorageThings.rows.length;
+                                            var thingName;
+                                            for (var x = 0; x < tableLength; x++) {
+                                            	var row = coldStorageThings.rows[x];
+                                                thingName= row.name;
+                                                Things[thingName].Temperature=0+ Math.floor(Math.random() *5);
+                                                Things[thingName].Humidity=40+ Math.floor(Math.random() *60);
+                                            	Things[thingName].Leakage=Math.random() >= 0.5;
+                                            	Things[thingName].VoltageFluctuation =Math.random() >= 0.5;
+                                            }
+                                            ]]>
+                                            </code>
+                                        </Row>
+                                    </Rows>
+                                </ConfigurationTable>
+                            </ConfigurationTables>
+                        </ServiceImplementation>
+                    </Subscription>
+                </Subscriptions>
+            </ThingShape>
+            <PropertyBindings></PropertyBindings>
+            <RemotePropertyBindings></RemotePropertyBindings>
+            <RemoteServiceBindings></RemoteServiceBindings>
+            <RemoteEventBindings></RemoteEventBindings>
+            <AlertConfigurations></AlertConfigurations>
+            <ImplementedShapes></ImplementedShapes>
+            <ThingProperties></ThingProperties>
+        </Thing>
+    </Things>
+</Entities>

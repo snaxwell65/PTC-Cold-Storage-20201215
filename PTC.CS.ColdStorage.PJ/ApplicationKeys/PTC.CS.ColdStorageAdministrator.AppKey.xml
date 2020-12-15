@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entities
+ build="b9557"
+ majorVersion="9"
+ minorVersion="0"
+ modelPersistenceProviderPackage="H2PersistenceProviderPackage"
+ revision="0"
+ schemaVersion="1100"
+ universal="password">
+    <ApplicationKeys>
+        <ApplicationKey
+         clientName=""
+         description=""
+         documentationContent=""
+         expirationDate="2050-06-12T20:17:00.000Z"
+         homeMashup=""
+         ipWhitelist=""
+         keyId=""
+         lastModifiedDate="2020-12-15T18:30:29.449Z"
+         name="PTC.CS.ColdStorageAdministrator.AppKey"
+         projectName="PTC.CS.ColdStorage.PJ"
+         tags=""
+         userNameReference="ColdStorageAdministrator">
+            <avatar></avatar>
+            <DesignTimePermissions>
+                <Create></Create>
+                <Read></Read>
+                <Update></Update>
+                <Delete></Delete>
+                <Metadata></Metadata>
+            </DesignTimePermissions>
+            <RunTimePermissions></RunTimePermissions>
+            <VisibilityPermissions>
+                <Visibility></Visibility>
+            </VisibilityPermissions>
+            <ConfigurationTableDefinitions></ConfigurationTableDefinitions>
+            <ConfigurationTables></ConfigurationTables>
+        </ApplicationKey>
+    </ApplicationKeys>
+</Entities>
