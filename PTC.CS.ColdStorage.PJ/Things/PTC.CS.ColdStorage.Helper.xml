@@ -16,7 +16,7 @@
          homeMashup=""
          identifier=""
          inheritedValueStream=""
-         lastModifiedDate="2020-12-15T18:30:29.797Z"
+         lastModifiedDate="2020-12-15T20:26:56.577Z"
          name="PTC.CS.ColdStorage.Helper"
          projectName="PTC.CS.ColdStorage.PJ"
          published="false"
@@ -555,7 +555,7 @@
                                         //***********************************************************
                                         //Author: John 
                                         //Version: Initial Version
-                                        //Release: 1.0
+                                        //Release: 1.1
                                         //***********************************************************
                                         var tags = [{vocabulary:"Applications",vocabularyTerm:'DataEntities'}]; //application tag to be assigned
                                         var userName=userName;
